@@ -1,0 +1,34 @@
+<view class="info">
+    <view class="info-t">充值金额</view>
+    <view class="list flex-row">
+        <block wx:for="{{list}}">
+            <view bindtap="click" class="one flex-x-center {{selected==index?'active':''}}" data-index="{{index}}">
+                <block>
+                    <block wx:if="{{item.send_price>0}}">
+                        <view>
+                            <view class="flex-x-center one-1">{{item.pay_price}}</view>
+                            <view class="flex-x-center one-2">送{{item.send_price}}</view>
+                        </view>
+                    </block>
+                    <block wx:else>
+                        <view class="flex-y-center">
+                            <view class="flex-x-center one-1">{{item.pay_price}}</view>
+                        </view>
+                    </block>
+                </block>
+            </view>
+        </block>
+        <block>
+            <block wx:if="{{balance.type==1}}">
+                <view bindtap="click" class="one flex-x-center {{selected==-1?'active':''}}" data-index="-1">
+                    <view class="flex-y-center">
+                        <view class="flex-x-center one-1">
+                            <input bindinput="input" class="r-input {{selected==-1?'active':''}}" placeholder="其他金额" placeholderClass="r-input-p" type="number" value="{{money}}"></input>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </block>
+    </view>
+    <view bindtap="pay" class="recharge-btn flex-x-center flex-y-center">立即充值</view>
+</view>

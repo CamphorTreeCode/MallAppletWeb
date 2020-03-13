@@ -1,0 +1,21 @@
+<view class="float-icon" direction="all">
+    <block>
+        <block wx:if="{{store.dial==1}}">
+            <view bindtap="to_dial" class="dial" style="background-image:url('{{store.dial_pic}}'); background-size: 100rpx 100rpx;"></view>
+        </block>
+    </block>
+    <block>
+        <block wx:if="{{store.option.web_service}}">
+            <navigator hoverClass="none" openType="navigate" url="/pages/web/web?url={{store.option.web_service_url}}">
+                <image class="dial" src="{{store.option.web_service}}"></image>
+            </navigator>
+        </block>
+    </block>
+    <block>
+        <block wx:if="{{store.show_customer_service&&store.show_customer_service==1}}">
+            <button class="float-icon-btn" openType="contact" sessionFrom="{{_user_info.nickname}}|">
+                <image src="{{store.service}}"></image>
+            </button>
+        </block>
+    </block>
+</view>
